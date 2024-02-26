@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HireReport\HireReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,11 @@ Route::group([
     Route::get('/facebook', [AuthController::class, 'redirectToFacebook']);
     Route::get('/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
     Route::get('/disconnectFacebook', [AuthController::class, 'disconnectFacebook']);
+});
+
+
+Route::group(['namespace' => 'HireReport'], function() {
+    //table with pagination
+    Route::post('/hireReport/hireSent', [HireReportController::class, 'hireSent']);  
+    Route::post('/hireReport/fetch', [HireReportController::class, 'fetch']);  
 });

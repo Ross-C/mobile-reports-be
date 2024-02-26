@@ -17,6 +17,9 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    
+    'mal_api' => env('MAL_API', 'localhost'),
+    'mal_api_token' => env('MAL_API_TOKEN', 'localhost'),
 
     /*
     |--------------------------------------------------------------------------
