@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HireReport\HireReportController;
+use App\Http\Controllers\SpendingReport\SpendingReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,11 @@ Route::group(['namespace' => 'HireReport'], function() {
     //table with pagination
     Route::post('/hireReport/hireSent', [HireReportController::class, 'hireSent']);  
     Route::post('/hireReport/fetch', [HireReportController::class, 'fetch']);  
+});
+
+Route::group(['namespace' => 'SpendingReport'], function() {
+    //table with pagination
+    Route::post('/spendingReport/hireSent', [SpendingReportController::class, 'hireSent']);  
+    Route::post('/spendingReport/hireAccepted', [SpendingReportController::class, 'hireAccepted']);  
+    Route::post('/spendingReport/advertSpend', [SpendingReportController::class, 'advertSpend']);
 });
