@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HireReport\HireReportController;
 use App\Http\Controllers\SpendingReport\SpendingReportController;
+use App\Http\Controllers\PIReport\PIReportController;
+use App\Http\Controllers\RecoveryReport\RecoveryReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +56,16 @@ Route::group(['namespace' => 'SpendingReport'], function() {
     Route::post('/spendingReport/hireSent', [SpendingReportController::class, 'hireSent']);  
     Route::post('/spendingReport/hireAccepted', [SpendingReportController::class, 'hireAccepted']);  
     Route::post('/spendingReport/advertSpend', [SpendingReportController::class, 'advertSpend']);
+});
+
+Route::group(['namespace' => 'PIReport'], function() {
+    //table with pagination
+    Route::post('/piReport/piSent', [PIReportController::class, 'piSent']);  
+    Route::post('/piReport/fetch', [PIReportController::class, 'fetch']);  
+});
+
+Route::group(['namespace' => 'RecoveryReport'], function() {
+    //table with pagination
+    Route::post('/recoveryReport/recoverySent', [RecoveryReportController::class, 'recoverySent']);  
+    Route::post('/recoveryReport/fetch', [RecoveryReportController::class, 'fetch']);  
 });
