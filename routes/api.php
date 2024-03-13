@@ -7,6 +7,8 @@ use App\Http\Controllers\HireReport\HireReportController;
 use App\Http\Controllers\SpendingReport\SpendingReportController;
 use App\Http\Controllers\PIReport\PIReportController;
 use App\Http\Controllers\RecoveryReport\RecoveryReportController;
+use App\Http\Controllers\RepairReport\RepairReportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +70,10 @@ Route::group(['namespace' => 'RecoveryReport'], function() {
     //table with pagination
     Route::post('/recoveryReport/recoverySent', [RecoveryReportController::class, 'recoverySent']);  
     Route::post('/recoveryReport/fetch', [RecoveryReportController::class, 'fetch']);  
+});
+
+Route::group(['namespace' => 'RepairReport'], function() {
+    //table with pagination
+    Route::post('/repairReport/repairSent', [RepairReportController::class, 'repairSent']);  
+    Route::post('/repairReport/fetch', [RepairReportController::class, 'fetch']);  
 });
